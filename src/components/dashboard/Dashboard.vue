@@ -46,7 +46,7 @@
           <li :data-target=item.target class="list-group-item list-group-item" data-toggle="collapse" data-parent="#MainMenu" >
             {{item.title}} <i class="fas fa-angle-double-down"></i></li>
           <div class="collapse" :id=item.id >
-            <router-link :to="sub.path" class="list-group-item"  v-for="sub in item.Submenu" tag="li">{{sub.subTitle}}</router-link>
+            <router-link :to="sub.path" class="list-group-item"  v-for="sub in item.Submenu" tag="li" :key="sub.subTitle">{{sub.subTitle}}</router-link>
           </div>
           </div>
         </div>
@@ -117,9 +117,8 @@
   .logo{
     color:goldenrod;
     font-family: 'Russo One', sans-serif;
-    font-size: 30px;
+    font-size: 25px;
     margin-left: 35%;
-    padding-bottom: 15px;
     padding-top: 8px;
 
   }
@@ -182,7 +181,7 @@
 
   }
   .list-group-item{
-    font-size: 15px;
+    font-size: 12px;
     cursor: pointer;
   }
   .sidebar{

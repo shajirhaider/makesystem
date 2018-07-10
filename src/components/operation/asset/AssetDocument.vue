@@ -1,74 +1,43 @@
 <template>
-    <div>
-      <div class="document-grid">
+  <div>
+    <div class="row ">
+    <div class="col-sm-2"></div>
+
+    <div class="col-sm-10 ">
+      <div class="newItem">
         <div class="row">
-              <div class="newItem">
-                <div class="list-group panel" >
-                  <div class="addItem">
-                  <button class="list-group-item btn btn-outline-info  btn-md" data-target="#form" data-toggle="collapse" data-parent="#MainMenu" >
-                    New <i class="fas fa-plus"></i> </button>
-                  </div>
-                  <div class="collapse" id="form" >
-                    <li class="list-group-item" >
-                      <div class="form-group">
-                        <label for=""> User name</label>
-                        <input type="text">
-                      </div>
-                      <div class="dropdown-divider"></div>
-                      <div class="form-group">
-                        <label for=""> User name</label>
-                        <input type="text">
-                      </div>
-                      <div class="dropdown-divider"></div>
-                      <div class="form-group">
-                        <label for=""> User name</label>
-                        <input type="text">
-                      </div>
-                      <div class="dropdown-divider"></div>
-                      <div class="form-group">
-                        <label for=""> User name</label>
-                        <input type="text">
-                      </div>
-                      <div class="dropdown-divider"></div>
-                    </li>
-                  </div>
-                </div>
-              </div>
+          <li class="list-group-item" >
+            <div class="form-group">
+              <label for=""> User name</label>
+              <input type="text">
             </div>
+            <div class="dropdown-divider"></div>
+            <div class="form-group">
+              <label for=""> User name</label>
+              <input type="text">
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="form-group">
+              <label for=""> User name</label>
+              <input type="text">
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="form-group">
+              <label for=""> User name</label>
+              <input type="text">
+            </div>
+            <div class="dropdown-divider"></div>
 
-           <div class="row">
-             <div class="info">
-               <table class="table table-bordered">
-                 <thead>
-                 <tr>
-                   <th>Firstname</th>
-                   <th>Lastname</th>
-                   <th>Email</th>
-                 </tr>
-                 </thead>
-                 <tbody>
-                 <tr>
-                   <td>John</td>
-                   <td>Doe</td>
-                   <td>john@example.com</td>
-                 </tr>
-                 <tr>
-                   <td>Mary</td>
-                   <td>Moe</td>
-                   <td>mary@example.com</td>
-                 </tr>
-                 <tr>
-                   <td>July</td>
-                   <td>Dooley</td>
-                   <td>july@example.com</td>
-                 </tr>
-                 </tbody>
-               </table>
-             </div>
-           </div>
+            <router-link to="/operation/asset" tag="button" class="button" ><span>Submit </span></router-link>
+          </li>
+        </div>
 
-       </div>
+      </div>
+
+
     </div>
+  </div>
+  </div>
 </template>
 
 <script>
@@ -78,9 +47,47 @@
 </script>
 
 <style scoped>
-  .info{
-    width: 98%;
-    text-align: center;
-    margin-top: 20px;
+  .newItem{
+    margin-top: 5%;
   }
+  .button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #8080ff;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    padding: 5px;
+    width: 120px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 2px;
+  }
+
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  .button:hover span {
+    padding-right: 25px;
+  }
+
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
 </style>

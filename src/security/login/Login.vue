@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="">
     <div class="row">
       <div class="col-sm-4"></div>
       <div class="col-sm-4">
@@ -45,9 +45,9 @@
   background:#000111;
   border-radius: 2%;
   margin-top: 10%;
-  padding: 10%;
-  width: 100%;
-  height: 100%;
+   margin-left: 20px;
+   margin-right: 20px;
+  padding: 10% ;
   display: inline-block;
  }
  .logo{
