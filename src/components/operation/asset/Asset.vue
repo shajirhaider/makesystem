@@ -12,7 +12,7 @@
           <div class="newItem">
                  <span> <router-link  to="/asset/asset-document" tag="button" class="button">
                     New <i class="fas fa-plus"></i> </router-link> </span>
-            <span > <input type="text" placeholder="search" v-model="search"></span>
+            <span > <input type="text" placeholder="search..." v-model="search"></span>
           </div>
         </div>
 
@@ -27,17 +27,17 @@
         <table class="table table-bordered asset-table">
           <thead>
           <tr>
-            <th @click="sort('name')">Company Name <i class="fas fa-sort"></i></th>
-            <th @click="sort('category')">Category <i class="fas fa-sort"></i></th>
-            <th @click="sort('number')">Device Number <i class="fas fa-sort"></i></th>
-            <th @click="sort('date')">Date <i class="fas fa-sort"></i></th>
+            <th @click="sort('name')">Name <i class="fas fa-sort"></i></th>
+            <th @click="sort('model')">Model<i class="fas fa-sort"></i></th>
+            <th @click="sort('serial')">Serial <i class="fas fa-sort"></i></th>
+            <th @click="sort('date')"> Purchased Date <i class="fas fa-sort"></i></th>
           </tr>
           </thead>
           <tbody>
-          <tr v-for="asset in sortedAsset">
+          <tr v-for="(asset,index) in filteredAssetList" :key="index">
             <td>{{asset.name}}</td>
-            <td>{{asset.category}}</td>
-            <td>{{asset.number}}</td>
+            <td>{{asset.model}}</td>
+            <td>{{asset.serial}}</td>
             <td>{{asset.date}}</td>
           </tr>
           </tbody>
@@ -49,27 +49,28 @@
 </template>
 
 <script>
+
     export default {
         name: "Asset",
       data(){
           return{
             search:'',
-            asset:[
-          {name:'b',category:'Asset 1', number:3, date:'20/03/2018'},
-          {name:'a',category:'Asset 2', number:2, date:'24/08/2017'},
-          {name:'c',category:'Asset 1', number: 7,date:' 01/02/2018'}
-          ],
-
             currentSort:'name',
             currentSortDir:'asc',
             pageSize:2,
             currentPage:1,
 
+            asset:[
+              {name:'b',model:'Asset 1', serial:'3', date:'20-Jul-2018'},
+              {name:'a',model:'Asset 2', serial:'2', date:'24-Jun-2017'},
+              {name:'c',model:'Asset 1', serial:'7',date:' 01-feb-2018'}
+            ],
+
         }
       },
+
       methods:{
         sort(s) {
-          //if s == current sort, reverse
           if(s === this.currentSort) {
             this.currentSortDir = this.currentSortDir==='asc'?'desc':'asc';
           }
@@ -100,6 +101,14 @@
 
           });
         },
+
+        filteredAssetList() {
+          return this.sortedAsset.filter(asset => {
+            return asset.name.toLowerCase().includes(this.search.toLowerCase()) ||
+              asset.model.toLowerCase().includes(this.search.toLowerCase()) ||
+              asset.serial.toLowerCase().includes(this.search.toLowerCase())
+          })
+        }
       }
     }
 </script>
@@ -143,14 +152,15 @@
 
   .newItem span input{
 
-    width: 150px;
+    width: 180px;
     font-size: 15px;
-    border: 2px solid #8080ff;
+    border: 2px solid #76787a;
     border-radius: 4%;
     color: black;
     float: right;
     margin-right: 20px;
     padding-left: 5px;
+
   }
 
   .asset-table{
@@ -167,7 +177,5 @@
    .pagination button{
     margin-left: 10px;
     width: 80px;
-
-
   }
 </style>

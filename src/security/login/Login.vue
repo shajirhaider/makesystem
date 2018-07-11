@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div >
     <div class="row">
       <div class="col-sm-4"></div>
       <div class="col-sm-4">
@@ -42,12 +42,12 @@
 
 <style scoped>
  .login{
-  background:#000111;
+  background: #056362;
   border-radius: 2%;
   margin-top: 10%;
    margin-left: 20px;
    margin-right: 20px;
-  padding: 10% ;
+  padding: 5% ;
   display: inline-block;
  }
  .logo{
@@ -77,17 +77,15 @@
  .form-control{
     margin-top: 5px;
     background: whitesmoke;
-
  }
 
  .form-control input{
     width: 90%;
     margin-top: 5px;
-
-
  }
+
  .form-group button{
-    background: #fb1414;
+    background: #267d7d;
     color: white;
     margin-top: 5px;
  }

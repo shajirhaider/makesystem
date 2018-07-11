@@ -8,22 +8,22 @@
         <div class="row">
           <li class="list-group-item" >
             <div class="form-group">
-              <label for=""> User name</label>
+              <label for=""> Company name</label> <br>
               <input type="text">
             </div>
             <div class="dropdown-divider"></div>
             <div class="form-group">
-              <label for=""> User name</label>
+              <label for=""> Category</label> <br>
               <input type="text">
             </div>
             <div class="dropdown-divider"></div>
             <div class="form-group">
-              <label for=""> User name</label>
+              <label for=""> Device Number </label> <br>
               <input type="text">
             </div>
             <div class="dropdown-divider"></div>
             <div class="form-group">
-              <label for=""> User name</label>
+              <label for=""> Date</label> <br>
               <input type="text">
             </div>
             <div class="dropdown-divider"></div>
