@@ -23,14 +23,15 @@
             <button class="button">{{this.currentPage}}</button>
         </div>
 
+          <!-- Asset List Starts-->
 
         <table class="table table-bordered asset-table">
           <thead>
           <tr>
             <th @click="sort('name')">Name <i class="fas fa-sort"></i></th>
-            <th @click="sort('model')">Model<i class="fas fa-sort"></i></th>
+            <th @click="sort('model')">Model <i class="fas fa-sort"></i></th>
             <th @click="sort('serial')">Serial <i class="fas fa-sort"></i></th>
-            <th @click="sort('date')"> Purchased Date <i class="fas fa-sort"></i></th>
+            <th > Purchased Date </th>
           </tr>
           </thead>
           <tbody>
@@ -42,6 +43,9 @@
           </tr>
           </tbody>
         </table>
+
+        <!-- Asset List finished -->
+
         </div>
       </div>
   </div>
@@ -57,11 +61,16 @@
             search:'',
             currentSort:'name',
             currentSortDir:'asc',
-            pageSize:2,
+            pageSize:3,
             currentPage:1,
 
             asset:[
               {name:'b',model:'Asset 1', serial:'3', date:'20-Jul-2018'},
+              {name:'a',model:'Asset 2', serial:'2', date:'24-Jun-2017'},
+              {name:'c',model:'Asset 1', serial:'7',date:' 01-feb-2018'},
+              {name:'b',model:'Asset 1', serial:'3', date:'20-Jul-2018'},
+              {name:'a',model:'Asset 2', serial:'2', date:'24-Jun-2017'},
+              {name:'c',model:'Asset 1', serial:'7',date:' 01-feb-2018'},
               {name:'a',model:'Asset 2', serial:'2', date:'24-Jun-2017'},
               {name:'c',model:'Asset 1', serial:'7',date:' 01-feb-2018'}
             ],

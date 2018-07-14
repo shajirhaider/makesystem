@@ -4,51 +4,89 @@
     <div class="col-sm-2"></div>
 
     <div class="col-sm-10 ">
-      <div class="newItem">
-        <div class="row">
-          <li class="list-group-item" >
-            <div class="form-group">
-              <label for=""> Company name</label> <br>
-              <input type="text">
-            </div>
-            <div class="dropdown-divider"></div>
-            <div class="form-group">
-              <label for=""> Category</label> <br>
-              <input type="text">
-            </div>
-            <div class="dropdown-divider"></div>
-            <div class="form-group">
-              <label for=""> Device Number </label> <br>
-              <input type="text">
-            </div>
-            <div class="dropdown-divider"></div>
-            <div class="form-group">
-              <label for=""> Date</label> <br>
-              <input type="text">
-            </div>
-            <div class="dropdown-divider"></div>
-
-            <router-link to="/operation/asset" tag="button" class="button" ><span>Submit </span></router-link>
-          </li>
+      <div class="newItem ">
+        <form class="form-group">
+          <div class="" >
+            <label > Name</label> <br>
+            <input type="text">
+          </div>
+          <div class="dropdown-divider"></div>
+          <div class="">
+            <label > Model</label> <br>
+            <select  >
+              <option value="" >please select Asset</option>
+              <option value="Asset 1">Asset 1</option>
+              <option value="Asset 2">Asset 2</option>
+              <option value="Asset 3">Asset 3</option>
+            </select>
+          </div>
+          <div class="dropdown-divider"></div>
+          <div class=" ">
+            <label > Serial</label> <br>
+            <input type="text" >
+          </div>
+          <div class="dropdown-divider"></div>
+          <div class="">
+            <label > Purchased Date</label> <br>
+            <date-picker v-model="date" :config="options"></date-picker>
+          </div>
+          <div class="dropdown-divider"></div>
+        </form>
+        <div>
+          <router-link to="/operation/asset" tag="button" class="button" ><span>Submit</span></router-link>
         </div>
-
       </div>
 
+  </div>
 
-    </div>
+
   </div>
   </div>
 </template>
 
 <script>
-    export default {
-        name: "AssetDocument"
+  import datePicker from 'vue-bootstrap-datetimepicker';
+
+  import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
+
+
+  export default {
+    data () {
+      return {
+        date: null,
+        options: {
+          format: 'DD-MMM-YYYY',
+          useCurrent: false,
+          showClear: true,
+          showClose: true,
+          calendarWeeks:true,
+          widgetPositioning:{
+            horizontal:'auto',
+            vertical:'bottom'
+          }
+        }
+      }
+    },
+    components: {
+      datePicker
     }
+  }
 </script>
 
 <style scoped>
   .newItem{
     margin-top: 5%;
+  }
+  .form-group input[type=text], select {
+    width: 40%;
+    padding: 2px 10px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: white;
+    height: 30px;
   }
   .button {
     display: inline-block;
@@ -58,36 +96,13 @@
     color: #FFFFFF;
     text-align: center;
     font-size: 15px;
-    padding: 5px;
+    padding: 2px;
     width: 120px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 2px;
+
   }
 
-  .button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-
-  .button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-
-  .button:hover span {
-    padding-right: 25px;
-  }
-
-  .button:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
 
 </style>
